@@ -5,8 +5,9 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import com.jplunge.pianocatalogservices.util.OwnConfigurator;
-import com.jplunge.pianocatalogservices.util.WebConfig;
+
+import com.jplunge.pianocatalogservices.config.OwnConfigurator;
+import com.jplunge.pianocatalogservices.config.WebConfig;
 
 @SpringBootApplication
 public class PianoCatalogServicesApplication {

@@ -3,10 +3,11 @@ package com.jplunge.pianocatalogservices.service.kafka;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
+//import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-@Service
+//@Service
 public class Producer {
+	/*
 	private static final Logger logger = LoggerFactory.getLogger(Producer.class);
 	private static final String TOPIC_PIANOS = "pianos";
 	private static final String TOPIC_OTHER = "other";
@@ -19,4 +20,5 @@ public class Producer {
 		this.kafkaTemplate.send(TOPIC_PIANOS,message);
 		//this.kafkaTemplate.send(TOPIC_OTHER,message);
 	}
+	*/
 }

@@ -3,11 +3,10 @@ package com.jplunge.pianocatalogservices.model;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.springframework.hateoas.Link;
-import org.springframework.hateoas.ResourceSupport;
+
 
 //ResourceSupport must be extended for supporting HATEOAS. This collides with lombok unfortunately
-public class PianoItem extends ResourceSupport {
+public class PianoItem {
 	@Id
 	@GeneratedValue
 	private int pianoId;

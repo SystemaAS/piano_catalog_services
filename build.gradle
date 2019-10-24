@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.8.RELEASE'
+	id 'org.springframework.boot' version '2.1.1.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
 }
@@ -8,26 +8,49 @@ group = 'com.jplunge'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+apply plugin: 'java'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 repositories {
 	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
 }
 
+
+
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-hateoas'
-    implementation 'org.springframework.kafka:spring-kafka'
+    //implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+    //implementation 'org.springframework.kafka:spring-kafka'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	
+	//implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
+	
+	//======== USE spring cloud instead ============
+	//implementation 'org.springframework.boot:spring-security-jwt'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+	//compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.0'
+	implementation('io.jsonwebtoken:jjwt-api:0.10.5')
+	implementation('io.jsonwebtoken:jjwt-impl:0.10.5')
+	implementation('io.jsonwebtoken:jjwt-jackson:0.10.5')
+	//implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure'
+	//implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	//implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+	//implementation 'org.springframework.security.oauth2.boot:spring-security-oauth2-autoconfigure'
+	//======== END USE spring cloud instead ========
+    
     compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
 }
+
+
+test {
+	useJUnitPlatform()
+	systemProperty "file.encoding", "utf-8"
+}
+

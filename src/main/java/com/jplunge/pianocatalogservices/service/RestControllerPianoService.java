@@ -3,8 +3,8 @@ package com.jplunge.pianocatalogservices.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.Link;
-import org.springframework.hateoas.mvc.ControllerLinkBuilder;
+//import org.springframework.hateoas.Link;
+//import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,13 +26,16 @@ public class RestControllerPianoService {
 	@Autowired
 	PianoDao pianoDao;
 	
-	@Autowired
-	KafkaService kafkaService;
+	//@Autowired
+	//KafkaService kafkaService;
 	
 	
+	//Not working since spring boot 2.2
+	/*
 	@RequestMapping(value = "/pianosHO", produces = "application/hal+json")
 	public List<PianoItem> retrieveAllPianosHateOas() {
 		List<PianoItem> list = new ArrayList<PianoItem>();
+		
 		
 		for (PianoItem piano : pianoDao.findAll()){
 			//Adding self link employee 'singular' resource
@@ -47,15 +50,18 @@ public class RestControllerPianoService {
 		}
 		return list;
 	}
+	*/
+	
 	@RequestMapping(value = "/pianos", produces = "application/json")
 	public List<PianoItem> retrieveAllPianos() {
 		//test system property that we configured globally in the application start
 		logger.info("Testing system property:" + System.getProperty("app.type"));
 		//fetch all
 		List<PianoItem> list = pianoDao.findAll();
-		for (PianoItem piano: list){
+		
+		/*for (PianoItem piano: list){
 			kafkaService.sendMessageToKafkaTopic("record fetched: " + piano.getName() + " " + piano.getModel());
-		}
+		}*/
 		return  list;
 			
 	}

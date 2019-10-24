@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/kafka")
 public class KafkaService {
-
+	/*
 	private final Producer producer;
+	
 	@Autowired
 	public KafkaService(Producer producer) {
 	this.producer = producer;
@@ -21,6 +22,7 @@ public class KafkaService {
 	public void sendMessageToKafkaTopic(@RequestParam("message") String message){
 	this.producer.sendMessage(message);
 	}
+	*/
 }
 
 
