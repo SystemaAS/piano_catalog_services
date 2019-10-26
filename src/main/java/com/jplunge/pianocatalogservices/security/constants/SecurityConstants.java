@@ -1,4 +1,4 @@
-package com.jplunge.pianocatalogservices.security;
+package com.jplunge.pianocatalogservices.security.constants;
 
 public class SecurityConstants {
 
