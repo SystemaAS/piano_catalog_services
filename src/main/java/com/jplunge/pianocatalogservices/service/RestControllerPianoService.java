@@ -26,7 +26,7 @@ import com.jplunge.pianocatalogservices.model.PianoItem;
 import com.jplunge.pianocatalogservices.model.SignInDto;
 
 //@CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200" })
-//@CrossOrigin(origins = { "http://localhost:3006" }) //React port --> Check this at a global level: WebConfig
+//@CrossOrigin(origins = { "*" }) //React port --> Check this at a global level: WebConfig
 @RestController
 public class RestControllerPianoService {
 	private final Logger logger = LoggerFactory.getLogger(RestControllerPianoService.class);
@@ -60,9 +60,6 @@ public class RestControllerPianoService {
 		return list;
 	}
 	*/
-	
-	
-	
 	
 	@RequestMapping(value = "/pianos", produces = "application/json")
 	public List<PianoItem> retrieveAllPianos() {
