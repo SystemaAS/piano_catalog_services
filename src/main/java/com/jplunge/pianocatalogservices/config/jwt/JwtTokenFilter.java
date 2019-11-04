@@ -39,7 +39,7 @@ public class JwtTokenFilter extends GenericFilterBean {
  
         String headerValue = ((HttpServletRequest)req).getHeader("Authorization");
         getBearerToken(headerValue).ifPresent(token-> {
-            String username = getSubjectClaimFromToken((String)token);
+        	String username = getSubjectClaimFromToken((String)token);
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
  
             if (username.equals(userDetails.getUsername()) && !isJwtExpired((String)token)) {
@@ -63,6 +63,7 @@ public class JwtTokenFilter extends GenericFilterBean {
  
     
     private String getSubjectClaimFromToken(String token) {
+    	//System.out.println("Token:" + token);
         final Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
         return claims.getSubject();
     }

@@ -1,5 +1,7 @@
 package com.jplunge.pianocatalogservices;
 
+import java.security.Principal;
+
 import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 
@@ -46,6 +48,11 @@ public class PianoCatalogServicesApplication {
     public String hello() {
         return "Hello world";
     }
+	
+	@RequestMapping("/validateUser")
+	public Principal user(Principal user) {
+		return user;
+	}
 	
 	/** For testing without JWT
 	@PostMapping("/signin")
