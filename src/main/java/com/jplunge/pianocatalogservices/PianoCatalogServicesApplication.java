@@ -23,9 +23,10 @@ import com.jplunge.pianocatalogservices.config.WebConfig;
 import com.jplunge.pianocatalogservices.config.jwt.JwtProvider;
 import com.jplunge.pianocatalogservices.model.SignInDto;
 
-@SpringBootApplication
+
 //@CrossOrigin(origins = { "*" })
 @RestController
+@SpringBootApplication
 public class PianoCatalogServicesApplication {
 
 	@Autowired //to load some own configuration (just as an example ...)
